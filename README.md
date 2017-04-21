@@ -9,8 +9,9 @@ Utility to transfer archived Docker images from your AWS S3 bucket to your ECS r
 
 ## Installation
 You can install s3toecs via pip (depending on your distribution it might be named pip3 or pip)
-pip3 install s3toecs
-
+```
+pip3 install s3toe
+```
 ## Usage
 If you install the tool via Pip, you're ready to go, as the tool provides a CLI. 
 
