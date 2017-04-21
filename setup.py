@@ -8,7 +8,7 @@ with open(os.path.join(base_path, 'README.md')) as f:
 
 setup(
   name = 'S3toECS', 
-  version = '0.0.1',
+  version = '0.1.2',
   description = 'Tool that transfer Docker images from S3 to your ECS repository.',
   long_desc = long_desc,
   author = 'Antonio Maiolo',
