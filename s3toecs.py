@@ -40,8 +40,8 @@ def docker_rmi(tag):
 def docker_tag(old_tag, new_tag):
     return subprocess.Popen(['docker', 'tag', old_tag, new_tag]).communicate()
 
-if __name__ == '__main__':
-    
+def main():
+
     print('---------------- S3 to ECS transfer tool -----------------')
     url = input('S3 Url:')
     repo_name = input('ECS Repository Name:')
@@ -74,3 +74,6 @@ if __name__ == '__main__':
     docker_rmi(latest_tag)
     
     print('Done.')
+
+if __name__ == '__main__':
+    sys.exit(main())
