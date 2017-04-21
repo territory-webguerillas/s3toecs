@@ -1,11 +1,13 @@
 from setuptools import setup
+import os
 
-with open('./README.md') as f:
+base_path = os.path.dirname(os.path.realpath(__file__))
+
+with open(os.path.join(base_path, 'README.md')) as f:
     long_desc = f.read()
 
 setup(
-  name = 'S3toECS',
-  packages = ['S3toECS'], 
+  name = 'S3toECS', 
   version = '0.0.1',
   description = 'Tool that transfer Docker images from S3 to your ECS repository.',
   long_desc = long_desc,
