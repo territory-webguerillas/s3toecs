@@ -19,12 +19,12 @@ def ecr_describe_create(repo_name):
         print('Repository does not exist. Creating...')
         cmd_create = subprocess.Popen(['aws', 'ecr', 'create-repository', '--repository-name', repo_name],
                 stdout=subprocess.PIPE)
-        out = json.loads(cmd_create.communicate()[0])    
+        o, _ = cmd_create.communicate()
+        out = json.loads(o)['repository']['repositoryUri']
     else:
-        out = json.loads(output)    
+        out = json.loads(output)['repositories'][0]['repositoryUri'] 
         
-    return out['repositories'][0]['repositoryUri'] 
-
+    return out
 def s3_get(url, path='/tmp/'):
     return subprocess.Popen(['aws', 's3', 'cp', url, path]).communicate()
 

@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
   name = 'S3toECS', 
-  version = '0.1.6',
+  version = '0.1.7',
   description = 'Tool that transfers Docker images from S3 to your ECS repository.',
   author = 'Antonio Maiolo',
   author_email = 'maiolo.antonio@territory.de',
