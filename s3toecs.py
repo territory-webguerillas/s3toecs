@@ -1,7 +1,7 @@
 import subprocess
 import os 
 import json
-
+import sys
 
 def ecr_login():
     cmd = subprocess.Popen(['aws', 'ecr', 'get-login'], stdout=subprocess.PIPE)
@@ -14,11 +14,11 @@ def ecr_describe_create(repo_name):
     cmd = subprocess.Popen(['aws', 'ecr', 'describe-repositories', '--repository-names', repo_name],
             stdout=subprocess.PIPE)
     output, stderr = cmd.communicate()
-    print(output, stderr) 
+    
     if cmd.returncode != 0:
         print('Repository does not exist. Creating...')
-        cmd_create = subprocess.Popen(['aws', 'ecr', 'create-repository', '--repository-name', repo_name])
-        cmd_create.communicate()
+        cmd_create = subprocess.Popen(['aws', 'ecr', 'create-repository', '--repository-name', repo_name],
+                stdout=subprocess.PIPE)
         out = json.loads(cmd_create.communicate()[0])    
     else:
         out = json.loads(output)    
