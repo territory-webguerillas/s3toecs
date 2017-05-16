@@ -17,7 +17,7 @@ def ecr_describe_create(repo_name):
     print(output, stderr) 
     if cmd.returncode != 0:
         print('Repository does not exist. Creating...')
-        cmd_create = subprocess.Popen(['aws', 'ecr', '--repository-name', repo_name])
+        cmd_create = subprocess.Popen(['aws', 'ecr', 'create-repository', '--repository-name', repo_name])
         cmd_create.communicate()
         out = json.loads(cmd_create.communicate()[0])    
     else:
